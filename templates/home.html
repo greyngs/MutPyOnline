@@ -1,5 +1,35 @@
 {% extends "base.html" %}
 {% block title %}Info{% endblock %}
 {% block content %}
-<h1>Home</h1>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-5">
+            <div class="mb-3">
+                <form method="POST" action="/" enctype="multipart/form-data">
+                    <h1>Mutation Testing Online</h1>
+
+                    <hr>
+
+                    <h3>Target file</h3>
+                    <div class="mb-3">
+                        <label for="fileTarget" class="form-label">Select your target file</label>
+                        <input class="form-control" type="file" id="fileTarget" name="fileTarget" accept=".py">
+                    </div>
+
+                    <h3>Test file</h3>
+                    <div class="mb-3">
+                        <label for="fileTest" class="form-label">Select your test file</label>
+                        <input class="form-control" type="file" id="fileTest" name="fileTest" accept=".py">
+                    </div>
+
+                    <hr>
+                    
+                    <input type="submit" class="btn btn-success" value="Execute Mutation Testing">
+                </form>          
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
 {% endblock %}
