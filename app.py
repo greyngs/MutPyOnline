@@ -9,5 +9,9 @@ def home():
     else:
        return render_template("home.html") 
 
+@app.route("/operators")
+def operators():
+    return render_template("operators.html")
+
 if __name__=="__main__":
     app.run()

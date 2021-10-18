@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% block title %}Mutation Testing{% endblock %}
+{% block content %}
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+        </div>
+        <div class="col-5">
+            <div class="mb-3">
+                <h1>Mutation operators</h1>
+                <p>List of MutPy mutation operators sorted by alphabetical order:</p>
+
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th scope="row">AOD</th>
+                        <td>arithmetic operator deletion</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">AOR</th>
+                        <td>arithmetic operator replacement</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">ASR</th>
+                        <td>assignment operator replacement</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">BCR</th>
+                        <td>break continue replacement</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">COD</th>
+                        <td>conditional operator deletion</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">COI</th>
+                        <td>conditional operator insertion</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">CRP</th>
+                        <td>constant replacement</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">DDL</th>
+                        <td>decorator deletion</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">EHD</th>
+                        <td>exception handler deletion</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">EXS</th>
+                        <td>exception swallowing</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IHD</th>
+                        <td>hiding variable deletion</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IOD</th>
+                        <td>overriding method deletion</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">IOP</th>
+                        <td>overridden method calling position change</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">LCR</th>
+                        <td>logical connector replacement</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">LOD</th>
+                        <td>logical operator deletion</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">LOR</th>
+                        <td>logical operator replacement</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">ROR</th>
+                        <td>relational operator replacement</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">SCD</th>
+                        <td>super calling deletion</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">SCI</th>
+                        <td>super calling insert</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">SIR</th>
+                        <td>slice index remove</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <h3>Experimental mutation operators:</h3>
+
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th scope="row">CDI</th>
+                        <td>classmethod decorator insertion</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">OIL</th>
+                        <td>one iteration loop</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">RIL</th>
+                        <td>reverse iteration loop</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">SDI</th>
+                        <td>staticmethod decorator insertion</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">SDL</th>
+                        <td>statement deletion</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">SVD</th>
+                        <td>self variable deletion</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">ZIL</th>
+                        <td>zero iteration loop</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+</div>
+{% endblock %}
