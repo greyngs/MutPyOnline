@@ -72,7 +72,12 @@ def mut(f1, f2, options, operators):
 @app.route("/html_report")
 def html_report():
     return render_template("/html_report/index.html")
- 
+
+@app.route("/txt_report")
+def txt_report():
+    f = open("txt_report/report.txt", "r")
+    return render_template("txt_report.html", text=f.read())
+
 class Capturing(list):
     def __enter__(self):
         self._stdout = sys.stdout
