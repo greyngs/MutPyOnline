@@ -16,6 +16,13 @@ def home():
             f1.save(os.path.join(app.config['UPLOAD_FOLDER'], f1.filename))
             f2.save(os.path.join(app.config['UPLOAD_FOLDER'], f2.filename))
             
+        options = []
+            
+        options.append(request.form.get('timeFactorInput'))  #0
+        options.append(request.form.get('stdoutCheck'))      #1
+        options.append(request.form.get('expOperatorCheck')) #2
+        options.append(request.form['operatorsRadios'])      #3
+            
         return render_template("home.html")
     else:
        return render_template("home.html")
