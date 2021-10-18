@@ -37,7 +37,7 @@ def home():
         mut(f1.filename, f2.filename, options, operators)
         shutil.make_archive('./zips/html_report', 'zip', './templates/html_report')
         
-        return render_template("home.html")
+        return render_template("results.html")
     else:
        return render_template("home.html")
 
@@ -68,6 +68,10 @@ def mut(f1, f2, options, operators):
         text += word + "\n"
     f.write(text)
     f.close()
+    
+@app.route("/html_report")
+def html_report():
+    return render_template("/html_report/index.html")
  
 class Capturing(list):
     def __enter__(self):
