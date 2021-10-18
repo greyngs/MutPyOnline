@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import os
+import glob
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = "./files_test"
@@ -11,12 +12,18 @@ def home():
         f2 = request.files['fileTest']
         
         if f1.filename != "" and f2.filename != "":
+            deletePrev()
             f1.save(os.path.join(app.config['UPLOAD_FOLDER'], f1.filename))
             f2.save(os.path.join(app.config['UPLOAD_FOLDER'], f2.filename))
             
         return render_template("home.html")
     else:
-       return render_template("home.html") 
+       return render_template("home.html")
+   
+def deletePrev():
+    files = glob.glob("./files_test/*.py")
+    for file in files:
+        os.remove(file)
 
 @app.route("/operators")
 def operators():
