@@ -3,6 +3,7 @@ import os
 import glob
 import sys
 from mutpy import commandline
+from io import StringIO
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = "./files_test"
@@ -55,8 +56,24 @@ def mut(f1, f2, options, operators):
             argList.append(op)
     
     sys.argv = argList
-    commandline.main(sys.argv)
+    with Capturing() as output:
+        commandline.main(sys.argv)
+    f=open("txt_report/report.txt", 'w')
+    text=""
+    for word in output:
+        text += word + "\n"
+    f.write(text)
+    f.close()
  
+class Capturing(list):
+    def __enter__(self):
+        self._stdout = sys.stdout
+        sys.stdout = self._stringio = StringIO()
+        return self
+    def __exit__(self, *args):
+        self.extend(self._stringio.getvalue().splitlines())
+        del self._stringio    # free up some memory
+        sys.stdout = self._stdout
   
 def deletePrev():
     files = glob.glob("./files_test/*.py")
