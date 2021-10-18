@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request
 import os
 import glob
+import sys
+from mutpy import commandline
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = "./files_test"
@@ -33,7 +35,29 @@ def home():
         return render_template("home.html")
     else:
        return render_template("home.html")
-   
+
+def mut(f1, f2, options, operators): 
+    
+    argList = ['mut.py', '-t', './files_test/'+f1, '-u', './files_test/'+f2, '-m', '--report-html', 'templates/html_report', '--coverage']
+    
+    argList.append('-f')
+    argList.append(options[0])
+    
+    if options[1] == "stdout":
+        argList.append('-d')
+
+    if options[2] == "expOperators":
+        argList.append('-e')
+
+    if options[3] == "operators":
+        argList.append('-o')
+        for op in operators:
+            argList.append(op)
+    
+    sys.argv = argList
+    commandline.main(sys.argv)
+ 
+  
 def deletePrev():
     files = glob.glob("./files_test/*.py")
     for file in files:
