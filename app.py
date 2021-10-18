@@ -88,6 +88,11 @@ def download_txt():
     r = "txt_report/report.txt"
     return send_file(r, as_attachment=True)
 
+@app.route("/example_files")
+def example_files():
+    r = "example_files/example_files.zip"
+    return send_file(r, as_attachment=True)
+
 class Capturing(list):
     def __enter__(self):
         self._stdout = sys.stdout
