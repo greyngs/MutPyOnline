@@ -17,11 +17,18 @@ def home():
             f2.save(os.path.join(app.config['UPLOAD_FOLDER'], f2.filename))
             
         options = []
-            
+        operators = []
+        
         options.append(request.form.get('timeFactorInput'))  #0
         options.append(request.form.get('stdoutCheck'))      #1
         options.append(request.form.get('expOperatorCheck')) #2
         options.append(request.form['operatorsRadios'])      #3
+        
+        if options[3] == "operators":
+                for i in range(27):
+                    operator = request.form.get(str(i))
+                    if operator != None:
+                        operators.append(operator)
             
         return render_template("home.html")
     else:
