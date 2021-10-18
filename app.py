@@ -13,5 +13,10 @@ def home():
 def operators():
     return render_template("operators.html")
 
+@app.route("/info")
+def info():
+    return render_template("info.html")
+
+
 if __name__=="__main__":
     app.run()
