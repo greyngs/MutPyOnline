@@ -4,6 +4,7 @@ import glob
 import sys
 from mutpy import commandline
 from io import StringIO
+import shutil
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = "./files_test"
@@ -32,7 +33,10 @@ def home():
                     operator = request.form.get(str(i))
                     if operator != None:
                         operators.append(operator)
-            
+        
+        mut(f1.filename, f2.filename, options, operators)
+        shutil.make_archive('./zips/html_report', 'zip', './templates/html_report')
+        
         return render_template("home.html")
     else:
        return render_template("home.html")
