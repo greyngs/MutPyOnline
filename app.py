@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file
 import os
 import glob
 import sys
@@ -77,6 +77,16 @@ def html_report():
 def txt_report():
     f = open("txt_report/report.txt", "r")
     return render_template("txt_report.html", text=f.read())
+
+@app.route("/download_html")
+def download_html():
+    r = "zips/html_report.zip"
+    return send_file(r, as_attachment=True)
+
+@app.route("/download_txt")
+def download_txt():
+    r = "txt_report/report.txt"
+    return send_file(r, as_attachment=True)
 
 class Capturing(list):
     def __enter__(self):
