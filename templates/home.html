@@ -24,7 +24,165 @@
                     </div>
 
                     <hr>
-                    
+
+                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#moreoptions" role="button" aria-expanded="false" aria-controls="collapseExample">More options</a>
+
+                    <div class="collapse" id="moreoptions">
+                        <br>
+                        <h3>Time factor</h3>
+                        <p>Default 5</p>
+                        <input id="timeFactorInput" name="timeFactorInput" class="form-control" type="number" placeholder="Default 5" min="1" max="100" value="5">
+
+                        <hr>
+
+                        <h3>Disable stdout</h3>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="stdoutCheck" value="stdout" id="stdoutCheck">
+                            <label class="form-check-label" for="stdoutCheck">
+                            Try disable stdout during mutation (This option can damage your test) 
+                            </label>
+                        </div>
+
+                        <hr>
+
+                        <h3>Use experimental operator</h3>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="expOperatorCheck" value="expOperators" id="expOperatorCheck">
+                            <label class="form-check-label" for="expOperatorCheck">
+                            Use experimental <a href="{{ url_for('operators') }}">operators</a>
+                            </label>
+                        </div>
+
+                        <hr>
+
+                        <h3>Operators</h3>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="operatorsRadios" id="operatorRadio1" value="default" checked>
+                            <label class="form-check-label" for="operatorRadio1">
+                            Default operators
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input href="#operators" data-bs-toggle="collapse" class="form-check-input" type="radio" name="operatorsRadios" id="operatorRadio2" value="operators">
+                            <label class="form-check-label" for="operatorRadio2">
+                            Choose operators
+                            </label>
+                        </div>
+
+                        <div class="collapse" id="operators">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="AODcb" value="AOD" name="0">
+                                <label class="form-check-label" for="AODcb">AOD</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="AORcb" value="AOR" name="1">
+                                <label class="form-check-label" for="AORcb">AOR</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="ASRcb" value="ASR" name="2">
+                                <label class="form-check-label" for="ASRcb">ASR</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="BCRcb" value="BCR" name="3">
+                                <label class="form-check-label" for="BCRcb">BCR</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="CODcb" value="COD" name="4">
+                                <label class="form-check-label" for="CODcb">COD</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="COIcb" value="COI" name="5">
+                                <label class="form-check-label" for="COIcb">COI</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="CRPcb" value="CRP" name="6">
+                                <label class="form-check-label" for="CRPcb">CRP</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="DDLcb" value="DDL" name="7">
+                                <label class="form-check-label" for="DDLcb">DDL</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="EHDcb" value="EHD" name="8">
+                                <label class="form-check-label" for="EHDcb">EHD</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="EXScb" value="EXS" name="9">
+                                <label class="form-check-label" for="EXScb">EXS</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="IHDcb" value="IHD" name="10">
+                                <label class="form-check-label" for="IHDcb">IHD</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="OIDcb" value="OID" name="11">
+                                <label class="form-check-label" for="OIDcb">OID</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="OIPcb" value="OIP" name="12">
+                                <label class="form-check-label" for="OIPcb">OIP</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="LCRcb" value="LCR" name="13">
+                                <label class="form-check-label" for="LCRcb">LCR</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="LODcb" value="LOD" name="14">
+                                <label class="form-check-label" for="LODcb">LOD</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="LORcb" value="LOR" name="15">
+                                <label class="form-check-label" for="LORcb">LOR</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="RORcb" value="ROR" name="16">
+                                <label class="form-check-label" for="RORcb">ROR</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="SCDcb" value="SCD" name="17">
+                                <label class="form-check-label" for="SCDcb">SCD</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="SCIcb" value="SCI" name="18">
+                                <label class="form-check-label" for="SCIcb">SCI</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="SIRcb" value="SIR" name="19">
+                                <label class="form-check-label" for="SIRcb">SIR</label>
+                            </div>
+                            <hr>
+                            <p>Experimental</p>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="CDIcb" value="CDI" name="20">
+                                <label class="form-check-label" for="CDIcb">CDI</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="OILcb" value="OIL" name="21">
+                                <label class="form-check-label" for="OILcb">OIL</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="RILcb" value="RIL" name="22">
+                                <label class="form-check-label" for="RILcb">RIL</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="SDIcb" value="SDI" name="23">
+                                <label class="form-check-label" for="SDIcb">SDI</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="SDLcb" value="SDL" name="24">
+                                <label class="form-check-label" for="SDLcb">SDL</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="SVDcb" value="SVD" name="25">
+                                <label class="form-check-label" for="SVDcb">SVD</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="ZILcb" value="ZIL" name="26">
+                                <label class="form-check-label" for="ZILcb">ZIL</label>
+                            </div>
+                        </div>                
+                        <hr>
+                    </div>
                     <input type="submit" class="btn btn-success" value="Execute Mutation Testing">
                 </form>          
             </div>
