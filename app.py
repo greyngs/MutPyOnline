@@ -8,6 +8,7 @@ import shutil
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = "./files_test"
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 @app.route("/", methods=['GET','POST'])
 def home():
@@ -16,30 +17,37 @@ def home():
         f2 = request.files['fileTest']
         
         if f1.filename != "" and f2.filename != "":
+               
             deletePrev()
             f1.save(os.path.join(app.config['UPLOAD_FOLDER'], f1.filename))
             f2.save(os.path.join(app.config['UPLOAD_FOLDER'], f2.filename))
+
+            if confirm(f1.filename, f2.filename):
             
-        options = []
-        operators = []
-        
-        options.append(request.form.get('timeFactorInput'))  #0
-        options.append(request.form.get('stdoutCheck'))      #1
-        options.append(request.form.get('expOperatorCheck')) #2
-        options.append(request.form['operatorsRadios'])      #3
-        
-        if options[3] == "operators":
-                for i in range(27):
-                    operator = request.form.get(str(i))
-                    if operator != None:
-                        operators.append(operator)
-        
-        mut(f1.filename, f2.filename, options, operators)
-        shutil.make_archive('./zips/html_report', 'zip', './templates/html_report')
-        
-        return render_template("results.html")
+                options = []
+                operators = []
+                
+                options.append(request.form.get('timeFactorInput'))  #0
+                options.append(request.form.get('stdoutCheck'))      #1
+                options.append(request.form.get('expOperatorCheck')) #2
+                options.append(request.form['operatorsRadios'])      #3
+                
+                if options[3] == "operators":
+                        for i in range(27):
+                            operator = request.form.get(str(i))
+                            if operator != None:
+                                operators.append(operator)
+                
+                mut(f1.filename, f2.filename, options, operators)
+                shutil.make_archive('./zips/html_report', 'zip', './templates/html_report')
+                
+                return render_template("results.html")            
+            else:
+                return render_template("home.html", error=[False,True])
+        else:
+            return render_template("home.html", error=[True,False])
     else:
-       return render_template("home.html")
+       return render_template("home.html", error=[False,False])
 
 def mut(f1, f2, options, operators): 
     
@@ -116,6 +124,16 @@ def operators():
 def info():
     return render_template("info.html")
 
+def confirm(f1, f2):
+    
+    f1 = f1.replace(".py","")
+    f = open("./files_test/"+f2, "r")
+    f3 = f.read()
+
+    if 'from '+ f1 in f3:
+        return True
+    else:
+        return False
 
 if __name__=="__main__":
     app.run()

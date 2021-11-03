@@ -6,6 +6,20 @@
         <div class="col"></div>
         <div class="col-5">
             <div class="mb-3">
+                {% if  error[0] %}
+                    <div class="alert alert-danger" role="alert">
+                        Asegurate de haber seleccionado los archivos Target y Test
+                    </div>
+                {% endif %}
+                {% if  error[1] %}
+                    <div class="alert alert-danger" role="alert">
+                        Asegurate de que el archivo Test solo importe y contenga los TestCase para Target                        
+                    </div>
+                    <div class="alert alert-danger" role="alert">
+                        Puedes descargar dos archivos de prueba en el link al final de la pagina para observar la organizacion de los archivos
+                    </div>
+                {% endif %}
+                
                 <form method="POST" action="/" enctype="multipart/form-data">
                     <h1>Mutation Testing Online</h1>
 
