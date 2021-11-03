@@ -1,0 +1,43 @@
+[*] Start mutation process:
+   - targets: ./files_test/sum.py
+   - tests: ./files_test/test_sum.py
+[*] 1 tests passed:
+   - test_sum [0.00043 s]
+[*] Start mutants generation and execution:
+   - [#   1] AOR sum: 
+--------------------------------------------------------------------------------
+  1: def suma(a, b):
+- 2:     c = a + b
++ 2:     c = a - b
+  3:     if a == b:
+  4:         return 100
+  5:     return c
+--------------------------------------------------------------------------------
+[0.02413 s] killed by test_1 (test_sum.Test_sum)
+   - [#   2] COI sum: 
+--------------------------------------------------------------------------------
+  1: def suma(a, b):
+  2:     c = a + b
+- 3:     if a == b:
++ 3:     if not (a == b):
+  4:         return 100
+  5:     return c
+--------------------------------------------------------------------------------
+[0.02287 s] killed by test_1 (test_sum.Test_sum)
+   - [#   3] ROR sum: 
+--------------------------------------------------------------------------------
+  1: def suma(a, b):
+  2:     c = a + b
+- 3:     if a == b:
++ 3:     if a != b:
+  4:         return 100
+  5:     return c
+--------------------------------------------------------------------------------
+[0.02124 s] killed by test_1 (test_sum.Test_sum)
+[*] Mutation score [0.17721 s]: 100.0%
+   - all: 3
+   - killed: 3 (100.0%)
+   - survived: 0 (0.0%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)
+[*] Coverage: 24 of 26 AST nodes (92.3%)
